@@ -19,20 +19,14 @@
           class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
           @click.prevent="capitalize"
           >
-          Capitalize
-          </button>
-          <button 
-          class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-          @click.prevent="randomize"
-          >
-          Randomize
+          Do it!
           </button>
         </div>
       </div>
     </div>
-    <div class="flex flex-col text-center w-full mb-12" v-if="changedWord !== ''">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ changedWord }}</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{ word }}</p>
+    <div class="flex flex-col text-center w-full mb-12" v-if="capitalizedWord !== ''">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ capitalizedWord }}</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">{{ randomizeWord }}</p>
     </div>
   </div>
 </section>
@@ -44,16 +38,18 @@ export default {
   data () {
     return {
       word: '',
-      changedWord: ''
+      capitalizedWord: '',
+      randomizeWord: ''
     }
   },
   methods: {
     capitalize () {
-      this.changedWord = ''
-      this.changedWord = String(this.word).toUpperCase()
+      this.capitalizedWord = ''
+      this.capitalizedWord = String(this.word).toUpperCase()
+      this.randomize()
     },
     randomize () {
-      this.changedWord = ''
+      this.randomizeWord = ''
       const word = this.word.split('')
       word.forEach(el => {
         const random = Math.ceil(Math.random() * 10)
@@ -62,7 +58,7 @@ export default {
         } else if (random < 5) {
           el = el.toLowerCase()
         }
-        this.changedWord += el
+        this.randomizeWord += el
       })
     }
   }
