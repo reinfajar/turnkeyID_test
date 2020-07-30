@@ -24,6 +24,7 @@ describe("Home", () => {
 
   it("return", () => {
     expect(Home.data().word).toBe('');
-    expect(Home.data().changedWord).toBe('');
+    expect(Home.data().capitalizedWord).toBe('');
+    expect(Home.data().randomizeWord).toBe('');
   });
 });
