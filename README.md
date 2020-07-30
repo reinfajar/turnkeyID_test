@@ -1,4 +1,13 @@
 # fullstack_test
+**to check the problem**
+1. npm install
+2. npm run serve
+3. open browser and go to localhost:8080
+4. insert any word either click do it!
+
+**to do test unit**
+1. npm install
+2. npm run test:unit
 
 ## Project setup
 ```
